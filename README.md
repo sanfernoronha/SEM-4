@@ -1,2 +1,2 @@
-# OSTL
-Open Source Technologies Lab
+# SEM 4
+Semester $ Folders
