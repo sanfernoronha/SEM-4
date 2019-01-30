@@ -55,7 +55,7 @@ def run():
 		temp = readyQ[k]
 		readyQ[k].check = True
 		time = 0
-		print("READY-> ", readyQ[k])
+		print("\nREADY-> ", readyQ[k])
 
 		while(time < temp.bt): # Simulation of gantt chart
 			for process in prolist:
@@ -111,9 +111,13 @@ Enter arrival time for Process 3: 0
 Enter burst time for Process 3: 7
 Enter arrival time for Process 4: 0
 Enter burst time for Process 4: 3
+
 READY->  Process 4 | Arrival time: 0 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 1 | Arrival time: 0 | Burst time: 6 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 3 | Arrival time: 0 | Burst time: 7 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 2 | Arrival time: 0 | Burst time: 8 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
 
 Total completion time is 24
@@ -140,9 +144,13 @@ Enter arrival time for Process 3: 0
 Enter burst time for Process 3: 8
 Enter arrival time for Process 4: 3
 Enter burst time for Process 4: 3
+
 READY->  Process 3 | Arrival time: 0 | Burst time: 8 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 2 | Arrival time: 2 | Burst time: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 4 | Arrival time: 3 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 1 | Arrival time: 1 | Burst time: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
 
 Total completion time is 17
@@ -169,9 +177,13 @@ Enter arrival time for Process 3: 0
 Enter burst time for Process 3: 6
 Enter arrival time for Process 4: 0
 Enter burst time for Process 4: 2
+
 READY->  Process 4 | Arrival time: 0 | Burst time: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 2 | Arrival time: 0 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 3 | Arrival time: 0 | Burst time: 6 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 READY->  Process 1 | Arrival time: 0 | Burst time: 21 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
 
 Total completion time is 32

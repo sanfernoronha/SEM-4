@@ -32,6 +32,7 @@ prolist.sort(key = lambda x: x.at)
 def gantt():
 	sum = 0
 	for process in range(0, np):
+		print("\nREADY-> ", prolist[process])
 		sum = sum + prolist[process].bt
 		prolist[process].ct = sum
 	return sum
@@ -78,6 +79,16 @@ Enter burst time for Process 4: 9
 Enter arrival time for Process 5: 4
 Enter burst time for Process 5: 12
 
+READY->  Process 1 | Arrival time: 0 | Burst time: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
+READY->  Process 2 | Arrival time: 1 | Burst time: 6 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
+READY->  Process 3 | Arrival time: 2 | Burst time: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
+READY->  Process 4 | Arrival time: 3 | Burst time: 9 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
+READY->  Process 5 | Arrival time: 4 | Burst time: 12 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+
 Total completion time is 33
 
 Total turn around time is 66
@@ -90,4 +101,5 @@ Process 1 | Arrival time: 0 | Burst time: 2 | Completion time: 2 | Turn Around T
 Process 2 | Arrival time: 1 | Burst time: 6 | Completion time: 8 | Turn Around Time: 7 | Waiting Time: 1
 Process 3 | Arrival time: 2 | Burst time: 4 | Completion time: 12 | Turn Around Time: 10 | Waiting Time: 6
 Process 4 | Arrival time: 3 | Burst time: 9 | Completion time: 21 | Turn Around Time: 18 | Waiting Time: 9
-Process 5 | Arrival time: 4 | Burst time: 12 | Completion time: 33 | Turn Around Time: 29 | Waiting Time: 17'''
+Process 5 | Arrival time: 4 | Burst time: 12 | Completion time: 33 | Turn Around Time: 29 | Waiting Time: 17
+'''
