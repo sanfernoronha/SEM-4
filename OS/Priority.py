@@ -45,10 +45,10 @@ def gantt():
 
 readyQ = []
 
+print("\n-----------------------------Gantt Chart-----------------------------")
 
 def run():
 	i = 0
-	j = 0
 	count = 0
 	k = 0
 	readyQ.append(prolist[i])
@@ -57,11 +57,14 @@ def run():
 		k = 0    # High Priority job always at starting of the Queue
 		brk = False
 		temp = readyQ[k]
-		readyQ[k].check = True
-		time = 0
-		print("\nREADY-> ", readyQ[k])
+		temp.check = True
 
-		while(time <= temp.tempbt): # Simulation of gantt chart
+
+		print(f"Time elapsed {count}")
+		print("READY-> ", temp)
+
+		while(temp.tempbt > 0): # Simulation of gantt chart
+
 			for process in prolist:
 
 				if(not process.check and count >= process.at):
@@ -80,18 +83,19 @@ def run():
 			else:
 				pass
 
-			time = time + 1
-			count = count + 1
+
+			count = count + 1 # Because of premption, count increments by 1
 			temp.tempbt = temp.tempbt - 1
 
 		temp.ct = count
-		j = j + 1
 		if(temp.tempbt == 0):
 			readyQ.remove(temp)
 
 	return count
 
 comptime = run()
+print("--------------------------------------------------------------")
+
 print(f"\nTotal completion time is {comptime}")
 
 def ttat():
@@ -121,48 +125,49 @@ for process in range(0, np):
 
 
 '''
-Enter number of processes: 4
+Enter number of processes: 5
 Enter arrival time for Process 1: 0
-Enter burst time for Process 1: 5
-Enter priority for Process 1 (Lower number => Higher priority): 4
-Enter arrival time for Process 2: 1
-Enter burst time for Process 2: 3
+Enter burst time for Process 1: 10
+Enter priority for Process 1 (Lower number => Higher priority): 3
+Enter arrival time for Process 2: 0
+Enter burst time for Process 2: 1
 Enter priority for Process 2 (Lower number => Higher priority): 1
-Enter arrival time for Process 3: 2
-Enter burst time for Process 3: 6
-Enter priority for Process 3 (Lower number => Higher priority): 2
-Enter arrival time for Process 4: 3
+Enter arrival time for Process 3: 0
+Enter burst time for Process 3: 2
+Enter priority for Process 3 (Lower number => Higher priority): 4
+Enter arrival time for Process 4: 0
 Enter burst time for Process 4: 1
-Enter priority for Process 4 (Lower number => Higher priority): 3
+Enter priority for Process 4 (Lower number => Higher priority): 5
+Enter arrival time for Process 5: 0
+Enter burst time for Process 5: 5
+Enter priority for Process 5 (Lower number => Higher priority): 2
 
-READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+-----------------------------Gantt Chart-----------------------------
+Time elapsed 0
+READY->  Process 2 | Arrival time: 0 | Burst time: 1 | Priority: 1 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 1
+READY->  Process 5 | Arrival time: 0 | Burst time: 5 | Priority: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 6
+READY->  Process 1 | Arrival time: 0 | Burst time: 10 | Priority: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 16
+READY->  Process 3 | Arrival time: 0 | Burst time: 2 | Priority: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 18
+READY->  Process 4 | Arrival time: 0 | Burst time: 1 | Priority: 5 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+--------------------------------------------------------------
 
-READY->  Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 1 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Total completion time is 19
 
-READY->  Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 1 | Completion time: 3 | Turn Around Time: 0 | Waiting Time: 0
+Total turn around time is 60
+Average turn around time is 12.0
 
-READY->  Process 3 | Arrival time: 2 | Burst time: 6 | Priority: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Total waiting time is 41
+Average waiting time is 8.2
 
-READY->  Process 3 | Arrival time: 2 | Burst time: 6 | Priority: 2 | Completion time: 8 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 4 | Arrival time: 3 | Burst time: 1 | Priority: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 1 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 14 | Turn Around Time: 0 | Waiting Time: 0
-
-Total completion time is 15
-
-Total turn around time is 34
-Average turn around time is 8.5
-
-Total waiting time is 19
-Average waiting time is 4.75
-
-Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 15 | Turn Around Time: 15 | Waiting Time: 10
-Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 1 | Completion time: 4 | Turn Around Time: 3 | Waiting Time: 0
-Process 3 | Arrival time: 2 | Burst time: 6 | Priority: 2 | Completion time: 10 | Turn Around Time: 8 | Waiting Time: 2
-Process 4 | Arrival time: 3 | Burst time: 1 | Priority: 3 | Completion time: 11 | Turn Around Time: 8 | Waiting Time: 7
+Process 2 | Arrival time: 0 | Burst time: 1 | Priority: 1 | Completion time: 1 | Turn Around Time: 1 | Waiting Time: 0
+Process 5 | Arrival time: 0 | Burst time: 5 | Priority: 2 | Completion time: 6 | Turn Around Time: 6 | Waiting Time: 1
+Process 1 | Arrival time: 0 | Burst time: 10 | Priority: 3 | Completion time: 16 | Turn Around Time: 16 | Waiting Time: 6
+Process 3 | Arrival time: 0 | Burst time: 2 | Priority: 4 | Completion time: 18 | Turn Around Time: 18 | Waiting Time: 16
+Process 4 | Arrival time: 0 | Burst time: 1 | Priority: 5 | Completion time: 19 | Turn Around Time: 19 | Waiting Time: 18
 
 -----------------------------XXXX-----------------------------
 
@@ -180,23 +185,16 @@ Enter arrival time for Process 4: 3
 Enter burst time for Process 4: 6
 Enter priority for Process 4 (Lower number => Higher priority): 3
 
+-----------------------------Gantt Chart-----------------------------
+Time elapsed 0
 READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 1 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 1 | Completion time: 3 | Turn Around Time: 0 | Waiting Time: 0
-
+Time elapsed 5
 READY->  Process 3 | Arrival time: 2 | Burst time: 8 | Priority: 1 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 3 | Arrival time: 2 | Burst time: 8 | Priority: 1 | Completion time: 10 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 3 | Arrival time: 2 | Burst time: 8 | Priority: 1 | Completion time: 12 | Turn Around Time: 0 | Waiting Time: 0
-
+Time elapsed 13
 READY->  Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 2 | Completion time: 15 | Turn Around Time: 0 | Waiting Time: 0
-
+Time elapsed 16
 READY->  Process 4 | Arrival time: 3 | Burst time: 6 | Priority: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 4 | Arrival time: 3 | Burst time: 6 | Priority: 3 | Completion time: 20 | Turn Around Time: 0 | Waiting Time: 0
+--------------------------------------------------------------
 
 Total completion time is 22
 
@@ -210,4 +208,46 @@ Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 1 | Completion time: 5 |
 Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 2 | Completion time: 16 | Turn Around Time: 15 | Waiting Time: 12
 Process 3 | Arrival time: 2 | Burst time: 8 | Priority: 1 | Completion time: 13 | Turn Around Time: 11 | Waiting Time: 3
 Process 4 | Arrival time: 3 | Burst time: 6 | Priority: 3 | Completion time: 22 | Turn Around Time: 19 | Waiting Time: 13
+
+-----------------------------XXXX-----------------------------
+
+Enter number of processes: 4
+Enter arrival time for Process 1: 0
+Enter burst time for Process 1: 5
+Enter priority for Process 1 (Lower number => Higher priority): 4
+Enter arrival time for Process 2: 1
+Enter burst time for Process 2: 3
+Enter priority for Process 2 (Lower number => Higher priority): 1
+Enter arrival time for Process 3: 2
+Enter burst time for Process 3: 6
+Enter priority for Process 3 (Lower number => Higher priority): 2
+Enter arrival time for Process 4: 3
+Enter burst time for Process 4: 1
+Enter priority for Process 4 (Lower number => Higher priority): 3
+
+-----------------------------Gantt Chart-----------------------------
+Time elapsed 0
+READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 1
+READY->  Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 1 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 4
+READY->  Process 3 | Arrival time: 2 | Burst time: 6 | Priority: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 10
+READY->  Process 4 | Arrival time: 3 | Burst time: 1 | Priority: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 11
+READY->  Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 1 | Turn Around Time: 0 | Waiting Time: 0
+--------------------------------------------------------------
+
+Total completion time is 15
+
+Total turn around time is 34
+Average turn around time is 8.5
+
+Total waiting time is 19
+Average waiting time is 4.75
+
+Process 1 | Arrival time: 0 | Burst time: 5 | Priority: 4 | Completion time: 15 | Turn Around Time: 15 | Waiting Time: 10
+Process 2 | Arrival time: 1 | Burst time: 3 | Priority: 1 | Completion time: 4 | Turn Around Time: 3 | Waiting Time: 0
+Process 3 | Arrival time: 2 | Burst time: 6 | Priority: 2 | Completion time: 10 | Turn Around Time: 8 | Waiting Time: 2
+Process 4 | Arrival time: 3 | Burst time: 1 | Priority: 3 | Completion time: 11 | Turn Around Time: 8 | Waiting Time: 7
 '''

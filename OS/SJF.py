@@ -42,6 +42,7 @@ def gantt():
 
 readyQ = []
 
+print("\n-----------------------------Gantt Chart-----------------------------")
 
 def run():
 	i = 0
@@ -55,7 +56,9 @@ def run():
 		temp = readyQ[k]
 		readyQ[k].check = True
 		time = 0
-		print("\nREADY-> ", readyQ[k])
+
+		print(f"Time elapsed {sum}")
+		print("READY-> ", temp)
 
 		while(time < temp.bt): # Simulation of gantt chart
 			for process in prolist:
@@ -74,6 +77,8 @@ def run():
 	return sum
 
 comptime = run()
+print("--------------------------------------------------------------")
+
 print(f"\nTotal completion time is {comptime}")
 
 def ttat():
@@ -104,72 +109,6 @@ for process in range(0, np):
 '''
 Enter number of processes: 4
 Enter arrival time for Process 1: 0
-Enter burst time for Process 1: 6
-Enter arrival time for Process 2: 0
-Enter burst time for Process 2: 8
-Enter arrival time for Process 3: 0
-Enter burst time for Process 3: 7
-Enter arrival time for Process 4: 0
-Enter burst time for Process 4: 3
-
-READY->  Process 4 | Arrival time: 0 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 1 | Arrival time: 0 | Burst time: 6 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 3 | Arrival time: 0 | Burst time: 7 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 2 | Arrival time: 0 | Burst time: 8 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-Total completion time is 24
-
-Total turn around time is 52
-Average turn around time is 13.0
-
-Total waiting time is 28
-Average waiting time is 7.0
-
-Process 4 | Arrival time: 0 | Burst time: 3 | Completion time: 3 | Turn Around Time: 3 | Waiting Time: 0
-Process 1 | Arrival time: 0 | Burst time: 6 | Completion time: 9 | Turn Around Time: 9 | Waiting Time: 3
-Process 3 | Arrival time: 0 | Burst time: 7 | Completion time: 16 | Turn Around Time: 16 | Waiting Time: 9
-Process 2 | Arrival time: 0 | Burst time: 8 | Completion time: 24 | Turn Around Time: 24 | Waiting Time: 16
-
------------------------------XXXX-----------------------------
-
-Enter number of processes: 4
-Enter arrival time for Process 1: 1
-Enter burst time for Process 1: 4
-Enter arrival time for Process 2: 2
-Enter burst time for Process 2: 2
-Enter arrival time for Process 3: 0
-Enter burst time for Process 3: 8
-Enter arrival time for Process 4: 3
-Enter burst time for Process 4: 3
-
-READY->  Process 3 | Arrival time: 0 | Burst time: 8 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 2 | Arrival time: 2 | Burst time: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 4 | Arrival time: 3 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-READY->  Process 1 | Arrival time: 1 | Burst time: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
-Total completion time is 17
-
-Total turn around time is 42
-Average turn around time is 10.5
-
-Total waiting time is 25
-Average waiting time is 6.25
-
-Process 3 | Arrival time: 0 | Burst time: 8 | Completion time: 8 | Turn Around Time: 8 | Waiting Time: 0
-Process 1 | Arrival time: 1 | Burst time: 4 | Completion time: 17 | Turn Around Time: 16 | Waiting Time: 12
-Process 2 | Arrival time: 2 | Burst time: 2 | Completion time: 10 | Turn Around Time: 8 | Waiting Time: 6
-Process 4 | Arrival time: 3 | Burst time: 3 | Completion time: 13 | Turn Around Time: 10 | Waiting Time: 7
-
------------------------------XXXX-----------------------------
-
-Enter number of processes: 4
-Enter arrival time for Process 1: 0
 Enter burst time for Process 1: 21
 Enter arrival time for Process 2: 0
 Enter burst time for Process 2: 3
@@ -178,13 +117,16 @@ Enter burst time for Process 3: 6
 Enter arrival time for Process 4: 0
 Enter burst time for Process 4: 2
 
+-----------------------------Gantt Chart-----------------------------
+Time elapsed 0
 READY->  Process 4 | Arrival time: 0 | Burst time: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
+Time elapsed 2
 READY->  Process 2 | Arrival time: 0 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
+Time elapsed 5
 READY->  Process 3 | Arrival time: 0 | Burst time: 6 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
-
+Time elapsed 11
 READY->  Process 1 | Arrival time: 0 | Burst time: 21 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+--------------------------------------------------------------
 
 Total completion time is 32
 
@@ -198,4 +140,40 @@ Process 4 | Arrival time: 0 | Burst time: 2 | Completion time: 2 | Turn Around T
 Process 2 | Arrival time: 0 | Burst time: 3 | Completion time: 5 | Turn Around Time: 5 | Waiting Time: 2
 Process 3 | Arrival time: 0 | Burst time: 6 | Completion time: 11 | Turn Around Time: 11 | Waiting Time: 5
 Process 1 | Arrival time: 0 | Burst time: 21 | Completion time: 32 | Turn Around Time: 32 | Waiting Time: 11
+
+-----------------------------XXXX-----------------------------
+
+Enter number of processes: 4
+Enter arrival time for Process 1: 1
+Enter burst time for Process 1: 4
+Enter arrival time for Process 2: 2
+Enter burst time for Process 2: 2
+Enter arrival time for Process 3: 0
+Enter burst time for Process 3: 8
+Enter arrival time for Process 4: 3
+Enter burst time for Process 4: 3
+
+-----------------------------Gantt Chart-----------------------------
+Time elapsed 0
+READY->  Process 3 | Arrival time: 0 | Burst time: 8 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 8
+READY->  Process 2 | Arrival time: 2 | Burst time: 2 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 10
+READY->  Process 4 | Arrival time: 3 | Burst time: 3 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+Time elapsed 13
+READY->  Process 1 | Arrival time: 1 | Burst time: 4 | Completion time: 0 | Turn Around Time: 0 | Waiting Time: 0
+--------------------------------------------------------------
+
+Total completion time is 17
+
+Total turn around time is 42
+Average turn around time is 10.5
+
+Total waiting time is 25
+Average waiting time is 6.25
+
+Process 3 | Arrival time: 0 | Burst time: 8 | Completion time: 8 | Turn Around Time: 8 | Waiting Time: 0
+Process 1 | Arrival time: 1 | Burst time: 4 | Completion time: 17 | Turn Around Time: 16 | Waiting Time: 12
+Process 2 | Arrival time: 2 | Burst time: 2 | Completion time: 10 | Turn Around Time: 8 | Waiting Time: 6
+Process 4 | Arrival time: 3 | Burst time: 3 | Completion time: 13 | Turn Around Time: 10 | Waiting Time: 7
 '''
