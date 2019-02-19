@@ -2,50 +2,57 @@
 #include<stdlib.h>
 #define SIZE 100
 
-void swap(int *a, int *b)
+void merge(int list[], int low, int mid, int high) //Function to merge arrays
 {
-	int temp;
-	temp=*a;
-	*a=*b;
-	*b=temp;
+    int i, j, k=0;
+    i=low;
+    j=mid+1;
+    int c[SIZE];
+    while(i<=mid && j<=high)
+    {
+        if(list[i]<list[j])
+        {
+            c[k]=list[i];
+            i++;
+        }
+        else
+        {
+            c[k]=list[j];
+            j++;
+        }
+        k++;
+    }
+    while(i<=mid) //For when j>high
+    {
+        c[k]=list[i];
+        i++;
+        k++;
+    }
+    while(j<=high)  //For when i>mid
+    {
+        c[k]=list[j];
+        j++;
+        k++;
+    }
+    for(i=low, k=0; i<=high; i++, k++) //To change elements of original array after copying into temp array
+    {
+        list[i]=c[k];
+    }
 }
 
-int partition(int list[], int low, int high)
-{
-	int pivot, i=low, j=high;
-	pivot=list[low];
-	while(i<j)
-	{
-		while(list[i]<=pivot)
-		{
-			i++;
-		}
-		while(list[j]>pivot)
-		{
-			j--;
-		}
-		if(i<j)
-		{
-			swap(&list[i], &list[j]);
-		}
-	}
-	swap(&list[low], &list[j]);
-	return j;
-}
-
-void quickSort(int list[], int low, int high)
+void mergeSort(int list[], int low, int high) /*Recursive function that splits arrays and merges them after sorting*/
 {
 	int m;
 	if(low<high)
 	{
 		m=(low+high)/2;
-		quickSort(list, low, m);
-		quickSort(list, m+1, high);
-		pi=partition(list,low, m, high);
+		mergeSort(list, low, m);
+		mergeSort(list, m+1, high);
+        merge(list,low, m, high);
 	}
 }
 
-void display(int list[], int n)
+void display(int list[], int n) //Function to display elements in array
 {
 	int i;
 	for(i=0; i<n; i++)
@@ -68,26 +75,26 @@ void main()
 	}
 	printf("Array before sorting is\n");
 	display(list, n);
-	quickSort(list, 0, n-1);
+	mergeSort(list, 0, n-1);
 	printf("Array after sorting is\n");
 	display(list, n);
 }
 
 
 /*
-Enter number of elements
-8
-Enter elements
-60
-40
-20
-95
-90
-30
-50
-70
-Array before sorting is
-60 40 20 95 90 30 50 70 
-Array after sorting is
-20 30 40 50 60 70 90 95 
+ Enter number of elements
+ 8
+ Enter elements
+ 39
+ 9
+ 81
+ 45
+ 90
+ 27
+ 72
+ 18
+ Array before sorting is
+ 39 9 81 45 90 27 72 18
+ Array after sorting is
+ 9 18 27 39 45 72 81 90
 */
