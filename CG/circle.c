@@ -1,11 +1,6 @@
-/*
- * circle.c
- *
- *  Created on: 28-Jan-2019
- *      Author: 8340
- */
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 #include<GL/glut.h>
 
 
@@ -19,25 +14,24 @@ void circle(){
     x = 0;
     y = r;
     p = 5/4 - r;
-
     do{
         glVertex2f(x1 + x, y1 + y);
-        glVertex2f(y1 + y,x1 + x);
+        glVertex2f(x1 + y,y1 + x);
         glVertex2f(x1 - x,y1 + y);
-        glVertex2f(y1 + y,x1 - x);
+        glVertex2f(x1 + y,y1 - x);
         glVertex2f(x1 - x,y1 - y);
-        glVertex2f(y1 - y,x1 - x);
+        glVertex2f(x1 - y,y1 - x);
         glVertex2f(x1 + x,y1 - y);
-        glVertex2f(y1 - y,x1 + x);
+        glVertex2f(x1 - y,y1 + x);
 
         if(p <= 0){
-            x = x + 1;
             p = p + 2*x + 3;
+            x = x + 1;
         }
         else{
+            p = p + 2*x - 2*y + 5;
             x = x + 1;
             y = y - 1;
-            p = p + 2*x - 2*y + 5;
         }
 
     }while(x <= y);
