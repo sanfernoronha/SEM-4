@@ -107,34 +107,21 @@ void display(int pred[], int dist[], int n, int src){
   printf("Predecessor array is\n");
   disp_arr(pred, n, src);
   printf("\n");
-  for(i = 0; i < n; i++){
-    if(i == src){
-      printf("%d is source node\n", i);
-      continue;
-    }
-    printf("\nFor vertex %d\n", i);
-    printf("%d ", i);
-    j = i;
-    while(pred[j] != src){
-      j = pred[j];
-      printf("<-%d ", j);
-    }
-    printf("<-%d ", src);
-    printf("\n");
+  for(i = 1; i < n; i++){
     sum = sum + dist[i];
   }
 	printf("Total weight of the graph is %d\n", sum);
 }
 
 void prim(int n){
-  int src, mindx, mjndx, min, check = 1, i, j;
+  int src, mindx, mjndx, min, check = 1, i, j,count = 0;
   int dist[SIZE] = {1000};
   int pred[SIZE] = {0};
   int visited[SIZE] = {0};
-  printf("Enter source node\n");
+  printf("Enter source node: ");
   scanf("%d", &src);
   visited[src] = 1;
-  while(check){
+  while(count < n-1){
 		min = 1000;
 		mindx = 0;
 		mjndx = 0;
@@ -152,15 +139,8 @@ void prim(int n){
 		pred[mjndx] = mindx;
 		dist[mjndx] = min;
 		visited[mjndx] = 1;
-		for(i = 0; i < n; i++){
-      if(visited[i] == 1){
-        check = 0;
-      }
-      else{
-        check = 1;
-				break;
-      }
-    }
+		printf("Edge %d -> %d added\n", mindx, mjndx);
+		count = count + 1;
   }
   display(pred, dist, n, src);
 }
@@ -169,99 +149,25 @@ void main(){
   int n;
   printf("Enter number of vertices\n");
   scanf("%d", &n);
-  create_graph(n);
+  //create_graph(n);
+	testgraph(n);
+	prim(n);
 }
 
 /*
 Enter number of vertices
-4
-Enter number edges for 0
-4
-Enter destination
-0
-Enter weight
-4
-Enter destination
-1
-Enter weight
-2
-Enter destination
-2
-Enter weight
-2
-Enter destination
-2
-Enter weight
-7
-Enter number edges for 1
-3
-Enter destination
-3
-Enter weight
-5
-Enter destination
-2
-Enter weight
-1
-Enter destination
-0
-Enter weight
-2
-Enter number edges for 2
-5
-Enter destination
-0
-Enter weight
-2
-Enter destination
-0
-Enter weight
-7
-Enter destination
-1
-Enter weight
-1
-Enter destination
-3
-Enter weight
-3
-Enter destination
-3
-Enter weight
-8
-Enter number edges for 3
-3
-Enter destination
-1
-Enter weight
-5
-Enter destination
-2
-Enter weight
-3
-Enter destination
-2
-Enter weight
-8
-Enter source node
-0
+6
+Enter source node: 0
+Edge 0 -> 1 added
+Edge 1 -> 2 added
+Edge 1 -> 5 added
+Edge 5 -> 4 added
+Edge 5 -> 3 added
 
 Distance array is
-src 2 1 3
+src 3 1 5 2 4
 Predecessor array is
-src 0 1 2
+src 0 1 5 5 1
 
-0 is source node
-
-For vertex 1
-1 <-0
-Total distance to vertex 1 is 2
-
-For vertex 2
-2 <-1 <-0
-Total distance to vertex 2 is 3
-
-For vertex 3
-3 <-2 <-1 <-0
-Total distance to vertex 3 is 6
+Total weight of the graph is 15
 */

@@ -176,19 +176,73 @@ void main(){
   int n;
   printf("Enter number of vertices\n");
   scanf("%d", &n);
+	test_graph1(n);
   create_graph(n);
   dij(n);
 }
 
 /*
-First test
+Enter number of vertices
+6
+Enter number edges for 0
+2
+Enter destination
+1
+Enter weight
+20
+Enter destination
+2
+Enter weight
+15
+Enter number edges for 1
+3
+Enter destination
+0
+Enter weight
+2
+Enter destination
+5
+Enter weight
+30
+Enter destination
+4
+Enter weight
+10
+Enter number edges for 2
+2
+Enter destination
+5
+Enter weight
+10
+Enter destination
+3
+Enter weight
+4
+Enter number edges for 3
+0
+Enter number edges for 4
+1
+Enter destination
+3
+Enter weight
+15
+Enter number edges for 5
+2
+Enter destination
+3
+Enter weight
+4
+Enter destination
+4
+Enter weight
+10
 Enter source node
 0
 
 Distance array is
-1000 20 15 19 30 25
+src 20 15 19 30 25
 Predecessor array is
-0 0 0 2 1 2
+src 0 0 2 1 2
 
 0 is source node
 
@@ -211,36 +265,4 @@ Total distance is 30
 For vertex 5
 5 <-2 <-0
 Total distance is 25
-
-
-Second test
-Enter source node
-0
-
-Distance array is
-1000 2 6 5 12 11
-Predecessor array is
-0 0 3 1 3 3
-
-0 is source node
-
-For vertex 1
-1 <-0
-Total distance is 2
-
-For vertex 2
-2 <-3 <-1 <-0
-Total distance is 6
-
-For vertex 3
-3 <-1 <-0
-Total distance is 5
-
-For vertex 4
-4 <-3 <-1 <-0
-Total distance is 12
-
-For vertex 5
-5 <-3 <-1 <-0
-Total distance is 11
 */
