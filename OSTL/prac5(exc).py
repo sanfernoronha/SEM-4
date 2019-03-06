@@ -1,3 +1,9 @@
+'''
+ Title   : Exception Handling
+ Name    : Kevlyn Kadamala
+ Roll no.: 8340
+ '''
+
 class RangeError(Exception):
    def __str__(self):
        return("\nInvalid range, please enter again\n")

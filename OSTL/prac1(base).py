@@ -1,3 +1,8 @@
+'''
+ Title   : Basics of Python
+ Name    : Kevlyn Kadamala
+ Roll no.: 8340
+ '''
 
 import random
 
@@ -50,7 +55,7 @@ for i in range(0,10):
 print("--------Conversion-------\n")
 cel = int(input("Enter the temperature in degree:"))
 fr =(cel *9.0)/5 + 32
-print (f"temperature in fahrenhreit :{fr} F")
+print (f"temperature in fahrenheit :{fr} F")
 km = int(input("Enter the distance in km:"))
 miles = km*0.62137
 print (f"distance in miles :{miles} miles")
@@ -91,7 +96,7 @@ x = 6  y = 3
 --------Conversion-------
 
 Enter the temperature in degree:100
-temperature in fahrenhreit :212.0 F
+temperature in fahrenheit :212.0 F
 Enter the distance in km:4
 distance in miles :2.48548 miles
 '''

@@ -1,3 +1,9 @@
+'''
+ Title   : File Analysis
+ Name    : Kevlyn Kadamala
+ Roll no.: 8340
+ '''
+
 import hashlib, os
 
 def MD5():
@@ -45,7 +51,7 @@ def reverse():
                     writef.write(str(txt))
                 writef.write(' ')
             writef.write('\n')
-
+    print("Reversing word order\n")
     read('New.txt')
 
 def count():
@@ -101,6 +107,8 @@ This is after editing
 
 For MD5 - 3de44b1ba48f430a48dee2c1beafd59b
 For SHA1 - 42d297da6a218ac93fb694cad7a2acb1fda87f52
+
+Reversing word order
 
 editing after is This
 line second the is This

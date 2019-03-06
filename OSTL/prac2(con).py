@@ -1,183 +1,182 @@
-print("----------No is positive ,negative or zero-----------\n")
-def check(p):
-	if p > 0:
-		print(f"{p} is a positive no")
-	elif p < 0:
-		print(f"{p} is a negative no")
-	else:
-		print(f"{p} is zero")
+'''
+ Title   : Control Statements
+ Name    : Kevlyn Kadamala
+ Roll no.: 8340
+ '''
 
-check(10)
-check(-19)
-check(0)
-
-print("------No is odd or even------\n")
-def even_odd(p):
-	if(p%2 == 0):
-		print(f"{p} is a even no")
-	else :
-		print (f"{p} is a odd no")
-
-p = int(input("Enter a no: "))
-even_odd(p)
-
-
-print("--------Check for leap year------------\n")
-def check_leap(year):
-	if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0 :
-		print(f"{year} is a leap year\n")
-	else:
-		print(f"{year} not a leap year")
-
-year = int(input("Enter a year :"))
-check_leap(year)
-
-
-print("------largest among 3 no------\n")
-def largest(a,b,c):
-	if a > b :
-		if a > c:
-			print (f"MAX = {a}")
-		else :
-			print (f"MAX = {c}")
-	else :
-		if b > c :
-			print (f"MAX = {b}")
-		else :
-			print(f"MAX = {c}")
-a = int(input("Enter a:"))
-b = int(input("Enter b:"))
-c = int(input("Enter c:"))
-largest(a,b,c)
-
-print("---------check prime no---------")
-def check_prime(n):
-    check = False
-    if n == 2:
-        check = False
+'''PS 1:Check if a Number is positive, negative or 0'''
+print("Check if a Number is positive, negative or 0")
+while True:
+    num=int(input("Enter a number: "))
+    if num>0:
+            print("The number is positive")
+    elif num==0:
+            print("The number is zero")
     else:
-        for i in range(2,n):
-            if n % i == 0:
-                check = True
-                break
-    if check:
-        print(f"{n} is not a prime no")
+            print("The number is negative")
+    p=int(input('If you want to end loop enter 0: '))
+    if p==0:
+        break
+
+print("-----------x-----------\n")
+'''PS 2:Check if a Number is odd or even'''
+print("Check if a Number is odd or even")
+while True:
+    y=int(input('Enter the number to be checked: '))
+    if y%2==0:
+        print('Entered number is even.')
     else:
-        print(f"{n} is a prime no")
+        print('Entered number is odd.')
+    i=int(input('Enter 0 to end the loop: '))
+    if i==0:
+        break
 
+print("-----------x-----------\n")
+'''PS 3:Check if a Leap Year'''
+print("Check if a Leap Year")
+while True:
+    y=int(input('Enter the year to be checked: '))
+    if(y%1000!=0 and y%4==0):
+        print("Entered year is a leap year")
+    else:
+        print("Entered year is not a leap year")
+    i=int(input('Enter 0 to end the loop: '))
+    if i==0:
+        break
 
-check_prime(2)
-check_prime(25)
-check_prime(13)
-
-print("-------Count vowels and consonants---------\n")
-def count(string):
-    countV = 0
-    vowelList ='aeiou'
-    string = string.lower()
-    for letter in string:
-        if letter in vowelList:
-            countV = countV + 1
-    countC = len(string) - countV
-    print(f"Total no of vowels :{countV} and consonants :{countC}")
-
-count('abcdifg')
-
-
-print("-------Quadratic equ-------\n")
-def quadratic(a,b,c):
-	d = b*b - 4 *a*c
-	x = (-b/(2.0*a))
-	if (d >= 0):
-		a1 = x + (pow(d,0.5)/(2.0*a))
-		a2 = x -(pow(d,0.5)/(2.0*a))
-		print (f"Roots are :{a1} & {a2}")
-	else :
-		print("There are no real solutions")
-
-
-a = int(input("Enter a:"))
-b = int(input("Enter b:"))
-c = int(input("Enter c:"))
-quadratic(a,b,c)
-
-print("------Sorting a list-----------\n")
-list1 = [3,4,9,1,7,6,0]
-for i in range(len(list1)):
-	for j in range(i):
-		if list1[j] > list1[j+1]:
-			temp =list1[j]
-			list1[j] = list1[j+1]
-			list1[j+1] = temp
-
-print(list1)
-
-print("----Searching in a list---------\n")
-list1 = [3,4,9,1,7,6,0]
-s = int(input("Enter ele to be searched :"))
-if s in list1:
-    print("Element present in list")
-else :
-    print("Element not present")
-
-print("-----Search and return the index----------\n")
-def search(list1, ele):
-	for index,value in enumerate(list1):
-		if(ele == value):
-			return index
-		else :
-			pass
-	return -1
-list1 = [3,4,9,1,7,6,0]
-s = int(input("Enter ele to be searched :"))
-val = search(list1,s)
-if(val != -1):
-	print(f"{s} found at index {val}")
+print("-----------x-----------\n")
+'''PS 4:Finding the largest number among three'''
+print("Finding the largest number among three")
+a=int(input("Enter 1st number: "))
+b=int(input("Enter 2nd number: "))
+c=int(input("Enter 3rd number: "))
+if a>=b:
+    if a>=c:
+        print(f"The largest value is: {a}")
+    else:
+        print(f"The largest value is: {c}")
 else:
-	print("Element not found ")
+    if b>=c:
+        print(f"The largest value is: {b}")
+    else:
+        print(f"The largest value is: {c}")
+
+print("-----------x-----------\n")
+'''PS 5:Count number of vowels and consonants from the string'''
+print("Count number of vowels and consonants from the string")
+q=w=0
+a=input("Enter the string: ")
+for i in a:
+    if i.isalpha():
+        if i=='a' or i=='e' or i=='i' or i=='o' or i=='u' or i=='A' or i=='E' or i=='I' or i=='O' or i=='U':
+            q+=1
+        else:
+            w+=1
+print(f"The number of consonants are {w} and vowels are {q}")
+
+print("-----------x-----------\n")
+'''PS 6:Demonstrating sorting algorithm using lists'''
+print("Demonstrating sorting algorithm using lists")
+def bubble_sort(li):
+    for i in range(0,len(li)):
+        for j in range(i,len(li)):
+            if li[i]>li[j]:
+                temp=li[i]
+                li[i]=li[j]
+                li[j]=temp
+def display_list(li):
+    for i in li:
+        print(i,end=' ')
+    print()
+n=int(input('Enter the size of the list: '))
+li=[]
+for i in range(0,n):
+    li.append(int(input(f'Enter the element {i}: ')))
+print('The list before sorting: ')
+display_list(li)
+bubble_sort(li)
+print('The list after sorting: ')
+display_list(li)
+
+print("-----------x-----------\n")
+'''PS 7:Demonstrating searching algorithm using lists'''
+print("Demonstrating searching algorithm using lists")
+def lSearch(li,n):
+    for i in range(0,len(li)):
+        if n==li[i]:
+            print('Element '+str(li[i])+' found at location '+str(i+1))
+            return
+    print('Element not present in list')
+
+n=int(input('Enter the size of the list: '))
+li=[]
+for i in range(0,n):
+    li.append(int(input(f'Enter the element {i}: ')))
+m=int(input('Enter the element to be found: '))
+lSearch(li,m)
 
 '''
-----------No is positive ,negative or zero-----------
+Check if a Number is positive, negative or 0
+Enter a number: 1
+The number is positive
+If you want to end loop enter 0: 1
+Enter a number: -1
+The number is negative
+If you want to end loop enter 0: 1
+Enter a number: 0
+The number is zero
+If you want to end loop enter 0: 0
+-----------x-----------
 
-10 is a positive no
--19 is a negative no
-0 is zero
-------No is odd or even------
+Check if a Number is odd or even
+Enter the number to be checked: 1
+Entered number is odd.
+Enter 0 to end the loop: 4
+Enter the number to be checked: 4
+Entered number is even.
+Enter 0 to end the loop: 0
+-----------x-----------
 
-Enter a no: 16
-16 is a even no
---------Check for leap year------------
+Check if a Leap Year
+Enter the year to be checked: 2012
+Entered year is a leap year
+Enter 0 to end the loop: 1
+Enter the year to be checked: 2014
+Entered year is not a leap year
+Enter 0 to end the loop: 0
+-----------x-----------
 
-Enter a year :2025
-2025 not a leap year
-------largest among 3 no------
+Finding the largest number among three
+Enter 1st number: 1
+Enter 2nd number: 5
+Enter 3rd number: 3
+The largest value is: 5
+-----------x-----------
 
-Enter a:12
-Enter b:45
-Enter c:89
-MAX = 89
----------check prime no---------
-2 is a prime no
-25 is not a prime no
-13 is a prime no
--------Count vowels and consonants---------
+Count number of vowels and consonants from the string
+Enter the string: hEllO
+The number of consonants are 3 and vowels are 2
+-----------x-----------
 
-Total no of vowels :2 and consonants :5
--------Quadratic equ-------
+Demonstrating sorting algorithm using lists
+Enter the size of the list: 4
+Enter the element 0: 1
+Enter the element 1: 2
+Enter the element 2: 9
+Enter the element 3: 3
+The list before sorting:
+1 2 9 3
+The list after sorting:
+1 2 3 9
+-----------x-----------
 
-Enter a:1
-Enter b:2
-Enter c:3
-There are no real solutions
-------Sorting a list-----------
-
-[1, 3, 4, 6, 7, 0, 9]
-----Searching in a list---------
-
-Enter ele to be searched :5
-Element not present
------Search and return the index----------
-
-Enter ele to be searched :3
-3 found at index 0
+Demonstrating searching algorithm using lists
+Enter the size of the list: 5
+Enter the element 0: 7
+Enter the element 1: 4
+Enter the element 2: 3
+Enter the element 3: 6
+Enter the element 4: 9
+Enter the element to be found: 3
+Element 3 found at location 3
 '''
