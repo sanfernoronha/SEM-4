@@ -47,3 +47,19 @@ void main(){
   nQueen(1, n, &count);
   printf("There are %d solutions possible\n", count);
 }
+
+/*
+Enter the number of Queens
+4
+Queen 1 placed at column 2
+Queen 2 placed at column 4
+Queen 3 placed at column 1
+Queen 4 placed at column 3
+
+Queen 1 placed at column 3
+Queen 2 placed at column 1
+Queen 3 placed at column 4
+Queen 4 placed at column 2
+
+There are 2 solutions possible
+*/
