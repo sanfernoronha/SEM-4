@@ -24,7 +24,9 @@ void SumofSub(int l, int wsf, int tpl, int w[], int s, int n){
   if(wsf == s){
     printf("The solution is\n");
     for(int i = 0; i < n; i++){
-      printf("%d ", sol[i]);
+      if(sol[i] == 1){
+        printf("%d ", w[i]);
+      }
     }
     printf("\n");
   }
@@ -63,8 +65,7 @@ void sort(int n, int a[]){
    sort(n, w);
    printf("Enter required sum\n");
    scanf("%d", &usersum);
-   sol[0] = 1;
-   SumofSub(0, w[0], sum, w, usersum, n);
+   SumofSub(-1, 0, sum, w, usersum, n);
  }
 
 /*
@@ -78,5 +79,20 @@ Enter weights
 Enter required sum
 13
 The solution is
-1 0 1 1
+6 3 4 
+
+----------------x----------------
+
+Enter number of weights
+3
+Enter weights
+2
+4
+6
+Enter required sum
+6
+The solution is
+2 4
+The solution is
+6
 */
